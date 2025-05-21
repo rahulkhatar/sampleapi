@@ -16,12 +16,11 @@ stages:
     pool:
       name: Default
     steps:
-    - checkout: self
     - task: Docker@2
       inputs:
         containerRegistry: 'Docker Registry Service'
         repository: 'rahulk86/sampleapi'
         command: 'buildAndPush'
-        Dockerfile: 'Dockerfile'
+        Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)

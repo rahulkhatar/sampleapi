@@ -21,6 +21,6 @@ stages:
         containerRegistry: 'Docker Registry Service'
         repository: 'rahulk86/sampleapi'
         command: 'buildAndPush'
-        Dockerfile: '**/SampleApi/Dockerfile'
+        Dockerfile: 'Dockerfile'
         tags: |
           $(tag)

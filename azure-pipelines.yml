@@ -21,6 +21,7 @@ stages:
         containerRegistry: 'Docker Registry Service'
         repository: 'rahulk86/sampleapi'
         command: 'buildAndPush'
-        Dockerfile: 'Dockerfile'
+        Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+        buildContext: '$(Build.SourcesDirectory)'
         tags: |
-          $(tag)
+          $(Build.BuildId)

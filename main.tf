@@ -24,6 +24,11 @@ terraform{
     }
 }
 
+variable "imagebuild"{
+    type = string
+    description = "The latest build version"
+}
+
 # We are creating a group resource
 resource "azurerm_resource_group" "AzureResourceGroupCreation" {
   name     = "AzureResourceGroupCreation"
@@ -42,7 +47,7 @@ resource "azurerm_container_group" "tf_cg_sampleapi"{
 
     container{
         name = "sampleapi"
-        image = "rahulk86/sampleapi"
+        image = "rahulk86/sampleapi: ${var.imagebuild}"
         cpu = "1"
         memory = "1"
         ports{

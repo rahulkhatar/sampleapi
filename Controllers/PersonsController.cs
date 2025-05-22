@@ -16,7 +16,9 @@ namespace SampleApi.Controllers
                 "Mickey Mouse",
                 "Batman",
                 "Spiderman",
-                "Robbin",                
+                "Robbin",
+                "Superman",
+                "Krrish"
             };
             return Ok(persons);
         }

@@ -15,7 +15,7 @@ stages:
     displayName: Build
     pool:
       name: Default
-    steps:    
+    steps:        
     - task: Docker@2
       inputs:
         containerRegistry: 'Docker Registry Service COnnection'
@@ -48,4 +48,6 @@ stages:
         ARM_TENANT_ID: $(ARM_TENANT_ID)
         ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
         TF_VAR_imagebuild: $(tag)
+        TF_VAR_docker_username: $(DOCKER_USERNAME)
+        TF_VAR_docker_password: $(DOCKER_PASSWORD)
     

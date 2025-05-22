@@ -15,13 +15,7 @@ stages:
     displayName: Build
     pool:
       name: Default
-    steps:    
-    - script: |
-        echo "Cleaning temp files..."
-        rm -rf /tmp/*
-        rm -rf ~/.cache/*
-        docker system prune -f
-        displayName: 'Clean Temp Files on Linux Agent'
+    steps:        
     - task: Docker@2
       inputs:
         containerRegistry: 'Docker Registry Service COnnection'

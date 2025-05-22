@@ -15,6 +15,15 @@ provider "azurerm" {
   }
 }
 
+terraform{
+    backend "azurerm" {
+        resource_group_name = "AzureResourceGroupCreation"
+        storage_account_name = "tfstorageforstate"
+        container_name = "tfstate"
+        key = "terraform.tfstate"
+    }
+}
+
 # We are creating a group resource
 resource "azurerm_resource_group" "AzureResourceGroupCreation" {
   name     = "AzureResourceGroupCreation"

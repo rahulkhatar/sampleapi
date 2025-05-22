@@ -37,7 +37,7 @@ resource "azurerm_resource_group" "AzureResourceGroupCreation" {
 
 # Create the container group
 resource "azurerm_container_group" "tf_cg_sampleapi"{
-    name = "cgsampleapi"
+    name = "cg_sampleapi"
     location = azurerm_resource_group.AzureResourceGroupCreation.location
     resource_group_name = azurerm_resource_group.AzureResourceGroupCreation.name
     
@@ -47,7 +47,7 @@ resource "azurerm_container_group" "tf_cg_sampleapi"{
 
     container{
         name = "sampleapi"
-        image = "rahulk86/sampleapi: ${var.imagebuild}"
+        image = "rahulk86/sampleapi:${var.imagebuild}"
         cpu = "1"
         memory = "1"
         ports{

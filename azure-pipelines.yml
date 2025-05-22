@@ -33,7 +33,7 @@ stages:
     pool: 
       name: Default
     variables: 
-    - group: SampleApiVariable
+    - group: TF_Sample_Lib
     steps:
      - script: |
         set -e

@@ -30,10 +30,10 @@ variable "imagebuild"{
 }
 
 # We are creating a group resource
-#  resource "azurerm_resource_group" "AzureResourceGroupCreation" {
-#  name     = "AzureResourceGroupCreation"
-#  location = "Central India"
-# }
+resource "azurerm_resource_group" "AzureResourceGroupCreation" {
+  name     = "AzureResourceGroupCreation"
+  location = "Central India"
+}
 
 # Create the container group
 resource "azurerm_container_group" "tf_cg_sampleapi"{

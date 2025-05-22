@@ -37,7 +37,7 @@ resource "azurerm_resource_group" "AzureResourceGroupCreation" {
 
 # Create the container group
 resource "azurerm_container_group" "tf_cg_sampleapi"{
-    name = "cg_sampleapi"
+    name = "cgsampleapi"
     location = azurerm_resource_group.AzureResourceGroupCreation.location
     resource_group_name = azurerm_resource_group.AzureResourceGroupCreation.name
     

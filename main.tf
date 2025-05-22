@@ -1,0 +1,44 @@
+# We need add a provider to use
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "2.96.0"
+    }
+  }
+}
+
+# Initialize the provider
+provider "azurerm" {
+  features {
+    
+  }
+}
+
+# We are creating a group resource
+resource "azurerm_resource_group" "AzureResourceGroupCreation" {
+  name     = "AzureResourceGroupCreation"
+  location = "Central India"
+}
+
+# Create the container group
+resource "azurerm_container_group" "tf_cg_sampleapi"{
+    name = "cg_sampleapi"
+    location = azurerm_resource_group.AzureResourceGroupCreation.location
+    resource_group_name = azurerm_resource_group.AzureResourceGroupCreation.name
+    
+    ip_address_type = "public"
+    dns_name_label = "sampleapitfs"
+    os_type = "Linux"
+
+    container{
+        name = "sampleapi"
+        image = "rahulk86/sampleapi"
+        cpu = "1"
+        memory = "1"
+        ports{
+            port = 80
+            protocol = "TCP"
+        }
+    }
+}
